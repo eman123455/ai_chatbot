@@ -16,7 +16,14 @@ class ChatMessageModel {
   }
 
   Map<String, dynamic> toJson() => {
-    'parts': parts?.map((e) => e.toJson()).toList(),
-    'role': role,
-  };
+        if (parts != null) 'parts': parts!.map((e) => e.toJson()).toList(),
+        if (role != null) 'role': role,
+      };
+
+  factory ChatMessageModel.user(String text) {
+    return ChatMessageModel(
+      parts: [Part(text: text)],
+      role: 'user',
+    );
+  }
 }

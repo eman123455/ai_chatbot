@@ -10,7 +10,7 @@ class Part {
   );
 
   Map<String, dynamic> toJson() => {
-    'text': text,
-    'thoughtSignature': thoughtSignature,
+    if (text != null) 'text': text,
+    if (thoughtSignature != null) 'thoughtSignature': thoughtSignature,
   };
 }
